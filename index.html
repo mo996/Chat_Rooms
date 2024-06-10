@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>Chat</title>
+</head>
+<body>
+
+  <!-- container & title -->
+  <div class="container my-4">
+    <h1 class="my-4 text-center">Chat</h1>
+    <!-- buttons for chatrooms -->
+    <div class="chat-rooms mb-3 text-center">
+      <div class="my-2">Choose a chatroom:</div>
+      <button class="btn btn-primary mx-1" id="general">#general</button>
+      <button class="btn btn-primary mx-1" id="gaming">#gaming</button>
+      <button class="btn btn-primary mx-1" id="music">#music</button>
+    </div>
+    <!-- chat list / window -->
+    <div class="chat-window">
+      <ul class="chat-list list-group"></ul>
+      <div class="typing-indicator text-muted mt-2"></div>
+    </div>
+    <!-- new chat form -->
+    <form class="new-chat my-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Your message:</div>
+        </div>
+        <input type="text" id="message" class="form-control" required>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success">Send</button>
+        </div>
+      </div>
+    </form>
+    <!-- update name form -->
+    <form class="new-name my-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Update name:</div>
+        </div>
+        <input type="text" id="name" class="form-control" required>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-warning">Update</button>
+        </div>
+      </div>
+      <div class="update-mssg text-success mt-2"></div>
+    </form>
+  </div>
+  
+  <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
+  <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+          apiKey: "AIzaSyDwJPZGGOmyXS_lYijIW8yLtyqrmn_7BR8",
+          authDomain: "chat-ac2ba.firebaseapp.com",
+          projectId: "chat-ac2ba",
+          storageBucket: "chat-ac2ba.appspot.com",
+          messagingSenderId: "131689532957",
+          appId: "1:131689532957:web:44ec04a465b7f970d400f4"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      // Initialize Cloud Firestore and get a reference to the service
+      const db = firebase.firestore();
+  </script>
+  <script src="js/chat.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
